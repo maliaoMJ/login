@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>PC用户登录界面</title>
+      <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <style >
+    *{
+      padding:0px;
+      margin:0px;
+
+    }
+    video{
+      width:100%;
+      position: absolute;
+      left:0px;
+      bottom:0px;
+      z-index: 3;
+    }
+    .box{
+      width:100%;
+      height:100%;
+      min-width: 1200px;
+      min-height: 600px;
+      background:rgba(0,0,0,0);
+      position: absolute;
+      top:0px;
+      left:0px;
+      z-index: 4;
+    }
+    .loginpanel{
+      width:700px;
+      height:300px;
+      border: 4px solid white;
+      border-radius: 10px;
+      position:absolute;
+      top:50%;
+      left:50%;
+      margin-left: -350px;
+      margin-top: -150px;
+      z-index: 6;
+        display: block;
+
+
+    }
+      .userinfo{
+          width:650px;
+          height:180px;
+
+          position: absolute;
+          top:80px;
+          left:25px;
+
+      }
+      .systemName{
+          border-top-right-radius: 10px;
+          border-top-left-radius: 10px;
+          width:100%;
+          height:46px;
+          position: absolute;
+          top:0px;
+          left:0px;
+          /*background: rgba(123, 255, 236, 0.7);*/
+          border-bottom: 4px solid white;
+
+      }
+      .time{
+          display: inline-block;
+          height:46px;
+          width:300px;
+          margin-left:50px;
+          font-size:18px;
+          color:white;
+          line-height: 46px;
+      }
+      .welcomeMessage{
+          display: block;
+          float:right;
+          height:46px;
+          width:200px;
+          margin-left:100px;
+          font-size:18px;
+          color:white;
+          line-height: 46px;
+      }
+      .userLogin{
+          width:70%;
+          height: 100%;
+
+          position: absolute;
+          top:0px;
+          left:30%;
+      }
+      .img{
+          width:27%;
+          height: 100%;
+          background:url(img/user.jpg);
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          position: absolute;
+          top:0px;
+          left:0;
+          border-radius: 10px;
+          border:8px solid white;
+      }
+      .userName  {
+          display: block;
+          width:90%;
+          height:40px;
+          background:rgba(0,0,0,0.5);
+          position: absolute;
+          left:5%;
+          top:30px;
+      }
+    .userName .fa-user-circle{
+        display:inline-block;
+        width:10%;
+        height:40px;
+        line-height: 40px;
+        font-size: 26px;
+        position: absolute;
+        top:0px;
+        left:0px;
+        color:white;
+        text-align: center;
+
+
+    }
+    .userName .fa-check{
+        display:inline-block;
+        width:10%;
+        height:40px;
+        line-height: 40px;
+        font-size: 26px;
+        position: absolute;
+        text-align: center;
+        top:0px;
+        left:90%;
+        color:white;
+    }
+    .userName input{
+        display:inline-block;
+        width:80%;
+        height:40px;
+        position: absolute;
+        top:0px;
+        left:10%;
+        outline: none;
+        font-size:26px;
+        line-height: 40px;
+        background:rgba(0,0,0,0.5);
+        border:none;
+        color:white;
+        padding-left:10px;
+
+    }
+    .userPassword{
+        display: block;
+        width:90%;
+        height:40px;
+        background:rgba(0,0,0,0.5);
+        position: absolute;
+        left:5%;
+        top:90px;
+    }
+    .userPassword .fa-lock{
+        display:inline-block;
+        width:10%;
+        height:40px;
+
+        position:absolute;
+        left:0;
+        top:0;
+        font-size: 26px;
+        text-align: center;
+        line-height: 40px;
+        color:white;
+    }
+    .userPassword .fa-eye-slash{
+        display:inline-block;
+        width:10%;
+        height:40px;
+
+        position:absolute;
+        left:90%;
+        top:0;
+        font-size: 26px;
+        text-align: center;
+        line-height: 40px;
+        color:white;
+    }
+      .userPassword .fa-eye{
+        display:none;
+        width:10%;
+        height:40px;
+
+        position:absolute;
+        left:90%;
+        top:0;
+        font-size: 26px;
+        text-align: center;
+        line-height: 40px;
+        color:white;
+    }
+    .userPassword input{
+        display:inline-block;
+        position: absolute;
+        top:0px;
+        left:10%;
+        width:80%;
+        height:40px;
+        outline:none;
+        border:none;
+        font-size:26px;
+        line-height: 40px;
+        background:rgba(0,0,0,0.5);
+        color:white;
+        padding-left:10px;
+    }
+    .operationBtn{
+        width: 50%;
+        height:40px;
+        position: absolute;
+        top:140px;
+        left:25%;
+        text-align: center;
+
+    }
+    .operationBtn button{
+        padding:5px 20px;
+        text-align: center;
+        margin-left:20px;
+    }
+    .regiserpanel{
+        width:360px;
+        height:500px;
+        border:6px solid white;
+        position:absolute;
+        top:10%;
+        left:50%;
+        margin-left: -180px;
+        display: none;
+        border-radius: 8px;
+        box-shadow: 10px 10px 10px #292929;
+    }
+    .registertitle{
+        width:100%;
+        height:10%;
+        position: absolute;
+        top:0px;
+        left:0px;
+        border-top-right-radius: 8px;
+        border-top-left-radius: 8px;
+        border-bottom: 4px solid white;
+        line-height: 50px;
+        text-align: center;
+        font-style: italic;
+        font-size: 25px;
+
+        font-family: "微软雅黑";
+        color:white;
+    }
+    .registerPower{
+        width:100%;
+        height:10%;
+        position: absolute;
+        bottom:0px;
+        left:0px;
+        border-bottom-right-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border-top: 4px solid white;
+        line-height: 50px;
+        text-align: center;
+        font-style: italic;
+        font-size: 12px;
+
+        font-family: "微软雅黑";
+        color:white;
+
+    }
+    .registerUsers{
+        width:100%;
+        height:80%;
+        position: absolute;
+        top:10%;
+        left:0px;
+        background:rgba(0,0,0,0.3);
+
+
+
+        color:white;
+    }
+    .registerItems{
+        width:90%;
+        height:86%;
+        position: absolute;
+        top:7%;
+        left:5%;
+
+        list-style: none;
+
+      }
+
+    .registerUserName{
+        position: absolute;
+        top:30px;
+        left:0px;
+        background:rgba(0,0,0,0.3);
+        width:100%;
+        height:35px;
+
+
+    }
+    .registerSubmit:hover{
+        background: rgba(15, 255, 0, 0.5);
+        cursor: pointer;
+    }
+    .registerUserName i{
+             display: inline-block;
+             position: absolute;
+             top:0px;
+             left:0px;
+             width:13%;
+             height: 100%;
+
+             text-align: center;
+             line-height: 33px;
+             font-size:25px;
+         }
+    .registerUserName input{
+        padding-left: 10px;
+        display: inline-block;
+        position: absolute;
+        top:0px;
+        left:13%;
+        width:65%;
+        height: 100%;
+        background:rgba(0,0,0,0.3);
+        border:none;
+        outline: none;
+        font-size:20px;
+
+    }
+   .registerUserEmail{
+       position: absolute;
+       top:80px;
+       left:0px;
+       background:rgba(0,0,0,0.3);
+       width:100%;
+       height:35px;
+   }
+
+   .registerUserPassword{
+       position: absolute;
+       top:130px;
+       left:0px;
+       background:rgba(0,0,0,0.3);
+       width:100%;
+       height:35px;
+   }
+   .registerConfirmPassword{
+       position: absolute;
+       top:185px;
+       left:0px;
+       background:rgba(0,0,0,0.3);
+       width:100%;
+       height:35px;
+   }
+   .registerSubmit{
+       position: absolute;
+       top:235px;
+       left:10%;
+       background:rgba(0,0,0,0.3);
+       width:80%;
+       height:35px;
+       border-radius: 5px;
+       color:white;
+       font-size: 20px;
+       line-height: 35px;
+       text-align: center;
+       transition-duration: 0.8s;
+   }
+   .registerLogin{
+       position: absolute;
+       bottom:0px;
+       left:0%;
+       background:rgba(0,0,0,0.3);
+       width:100%;
+       height:50px;
+
+       color:white;
+       font-size: 14px;
+       line-height: 50px;
+       text-align: center;
+
+   }
+    .registerUserPassword i , .registerConfirmPassword i , .registerUserEmail i{
+        display: inline-block;
+        position: absolute;
+        top:0px;
+        left:0px;
+        width:13%;
+        height: 100%;
+
+        text-align: center;
+        line-height: 33px;
+        font-size:25px;
+    }
+    .registerUserPassword input , .registerConfirmPassword input , .registerUserEmail input{
+        display: inline-block;
+        position: absolute;
+        top:0px;
+        left:13%;
+        width:65%;
+        height: 100%;
+        background:rgba(0,0,0,0.3);
+        border:none;
+        outline: none;
+        font-size:20px;
+        padding-left:10px;
+    }
+    .registerItems li span {
+        display: inline-block;
+        position: absolute;
+        top:0px;
+        left:78%;
+        width:22%;
+        height: 100%;
+
+        border:none;
+        outline: none;
+        font-size:10px;
+        line-height: 35px;
+        text-align: center;
+        color: white;
+
+    }
+  </style>
+  <script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
+<script>tpwidget("init", {
+    "flavor": "bubble",
+    "location": "WW02P7XHT0KB",
+    "geolocation": "enabled",
+    "position": "top-right",
+    "margin": "10px 10px",
+    "language": "zh-chs",
+    "unit": "c",
+    "theme": "chameleon",
+    "uid": "U09DD5FEDD",
+    "hash": "a960cd4c891f2800349b252dc721c72d"
+});
+tpwidget("show");</script>
+  <body>
+    <video autoplay loop="-1">
+      <source src="video/backgroundvideo.mp4" type="video/mp4">
+      您的游览器暂时不支持HTML5
+    </video>
+    <div class="box">
+
+       <div class="loginpanel">
+           <div class="systemName">
+               <span class="time"><i class="glyphicon glyphicon-time"></i>&nbsp;<i id="times"></i></span>
+               <span class="welcomeMessage"><em><marquee  direction="left" >欢迎使用</marquee></em></span>
+           </div>
+           <div class="userinfo" >
+
+                 <div class="img">
+
+                 </div>
+                 <div class="userLogin">
+                     <span class="userName"><i class="fa fa-user-circle"></i><input type="text"  name="userName" id="userName" placeholder="username" /><i class="fa fa-check"></i></span>
+                     <span class="userPassword"><i class="fa fa-lock"></i><input  type="password" name="userPassword" id="userPassword" placeholder="userpassword"/><i class="fa fa-eye-slash "></i><i class="fa fa-eye" ></i></span>
+                      </span>
+                     <div class="operationBtn">
+                         <button class="btn btn-danger" id="registerBtn"><i class="fa fa-address-card" aria-hidden="true"></i>&nbsp;注册</button>
+                         <button class="btn btn-success" id="loginBtn">登录&nbsp;<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
+                     </div>
+
+           </div>
+       </div>
+    </div>
+        <div class="regiserpanel">
+           <div class="registertitle">
+                <i class="fa fa-user-plus"></i> 用户注册
+           </div>
+            <div class="registerUsers">
+                  <ul class="registerItems">
+                      <li  class=" registerItem registerUserName"><i class="fa fa-user"></i><input placeholder="您的用户名" type="text" id="registerUserName"/><span class="registerUserNameMsg">*2~4个汉字</span></li>
+                      <li  class=" registerItem registerUserEmail" ><i class="fa fa-envelope"></i><input placeholder="您的邮箱" type="text" id="registerUserEmail"/><span class="registerUserEmailMsg">*邮箱地址</span></li>
+                      <li  class=" registerItem registerUserPassword"><i class="fa fa-lock"></i><input placeholder="您的密码" type="password" id="registerUserPassword"/><span class="registerUserPasswordMsg">*至少8位</span></li>
+                      <li  class=" registerItem registerConfirmPassword"><i class="fa fa-key"></i><input placeholder="再次输入您的密码"  type="password" id="registerConfirmPassword"/><span class="registerConfirmPasswordMsg"></span></li>
+                      <li  class=" registerItem registerSubmit">注册</li>
+                      <li  class=" registerItem registerLogin">
+
+                       如果您已经拥有账号,请点击 <a href="javascript:void(0);" id="loginTP">登录&nbsp;<i class="fa fa-anchor" aria-hidden="true"></i></a>
+                      </li>
+                  </ul>
+            </div>
+            <div class="registerPower">
+                Copyright ©2017 Powered By Administrator Version 1.0.0
+            </div>
+        </div>
+  </body>
+
+  <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.0/jquery.min.js"></script>
+  <script type="text/javascript">
+
+      $(document).ready(function(){
+
+          //getTime
+          function getTime(){
+              var date=new Date();
+              var year=date.getFullYear();
+              var month=rightTime((date.getMonth()+1));
+              var day=rightTime(date.getDate());
+              var hour=rightTime(date.getHours());
+              var minutes=rightTime(date.getMinutes());
+              var seconds=rightTime(date.getSeconds());
+              //时间格式化
+              function rightTime(timers){
+
+                  // timers>10 ? return timers : return  '0'+timers;
+                  if(timers>10){
+                      return timers;
+                  }else{
+                      return '0'+timers;
+                  }
+              }
+              var nowTime=year+"年"+month+"月"+day+"日 &nbsp;"+hour+":"+minutes+":"+seconds;
+              $('#times').html(nowTime);
+          }
+
+          setInterval(getTime,1000);
+          //gettime end
+          //进入注册页面
+           $('#registerBtn').on('click',function(){
+               $('.loginpanel').fadeOut(1000);
+               $('.regiserpanel').fadeIn(1000);
+
+           });
+          //进入登录界面
+          $('#loginTP').on('click',function(){
+              $('.loginpanel').fadeIn(1000);
+              $('.regiserpanel').fadeOut(1000);
+
+          });
+          //输入密码是否可见
+          $('.fa-eye').on('click',function(){
+            $(this).css('display','none');
+            $('.fa-eye-slash').css('display','inline-block');
+            $('#userPassword').removeAttr("type");
+            $('#userPassword').attr("type","password");
+          });
+          $('.fa-eye-slash').on('click',function(){
+            $(this).css('display','none');
+            $('.fa-eye').css('display','inline-block');
+            $('#userPassword').removeAttr("type");
+            $('#userPassword').attr("type","text");
+          });
+          //登录
+           $('#loginBtn').on('click',function(){
+               var password=$('#userPassword').val().toString();
+               var name=$('#userName').val().toString();
+               checkStr(name,password);
+           });
+          //注册
+          $('.registerSubmit').on('click',function(){
+              //获取用户数据
+             var registerUserName=$('#registerUserName').val().toString();
+             var registerUserEmail=$('#registerUserEmail').val().toString();
+             var registerUserPassword=$('#registerUserPassword').val().toString();
+             var registerConfirmPassword=$('#registerConfirmPassword').val().toString();
+             checkRegister(registerUserName,registerUserEmail,registerUserPassword,registerConfirmPassword);
+
+          });
+          // 校验用户注册的数据
+          function checkRegister(registerUserName,registerUserEmail,registerUserPassword,registerConfirmPassword){
+
+                        var userNameReg= /^[\u4e00-\u9fa5]{2,4}$/; //请正确填写姓名！姓名为两到四个汉字。
+                        var userEmailReg=/^([a-zA-Z0-9_-])+\@([a-zA-Z0-9_-])+.([a-zA-Z])+$/;//验证邮箱
+                        var userPassword=/^([a-zA-z]+[0-9]+)|([0-9]+[a-zA-Z]+)$/;//必须有字母和数字至少八位 
+                        var rightHTML="<i style='color:green;padding-left:25px;' class='fa fa-check'></i>";
+                        var faliureHTML="<i style='color:red;padding-left:25px' class='fa fa-times'></i>";
+                        //注册用户名验证
+                        if(registerUserName&&userNameReg.test(registerUserName)){
+                             var UserNameFlag=true;
+                             $('.registerUserNameMsg').html(rightHTML);
+                             
+                        }else{
+                             
+                             $('.registerUserNameMsg').html(faliureHTML);
+
+                             var UserNameFlag=false;
+                        }
+                        if(registerUserEmail&&userEmailReg.test(registerUserEmail)){
+                             var userEmailFlag=true;
+                             $('.registerUserEmailMsg').html(rightHTML);
+                        }else{
+                               $('.registerUserEmailMsg').html(faliureHTML);
+                              var userEmailFlag=false;
+                        }
+                        if(registerUserPassword&&userPassword.test(registerUserPassword)){
+                          var UserPasswordFlag=true;
+                             $('.registerUserPasswordMsg').html(rightHTML);
+                        }else{
+                               $('.registerUserPasswordMsg').html(faliureHTML);
+                             var UserPasswordFlag=false;
+                        }
+                        if(registerConfirmPassword&&registerConfirmPassword===registerUserPassword){
+                          var ConfirmPasswordFlag=true;
+                             $('.registerConfirmPasswordMsg').html(rightHTML);
+                        }else{
+                             $('.registerConfirmPasswordMsg').html(faliureHTML);
+                             var ConfirmPasswordFlag=false;
+                        }
+                        //验证通过准备提交
+                        if(UserNameFlag==true&&userEmailFlag==true&&UserPasswordFlag==true&&ConfirmPasswordFlag){
+                                    $.ajax({
+                                      type:'post',
+                                      url:'',
+                                      data:{userName:registerUserName,userEmail:registerUserEmail,userPassword:registerUserPassword},
+                                      success:function(data){
+                                        console.log(data);
+                                      },
+                                      error:function(XMLHttpRequest, textStatus, errorThrown){
+                                          alert('用户注册数据提交失败！');
+                                          console.log(XMLHttpRequest.status);
+                                          console.log(XMLHttpRequest.readyState);
+                                          console.log(textStatus);
+                                      }
+                                    });
+
+
+                        }
+
+
+
+
+          }
+
+
+          //校验提交用户登录的数据
+          function checkStr(name,password){
+             if((name==''|| name==null)||(password==''||password==null)){
+                        alert('用户名或密码不能为空！');
+             }else{
+              //向后台提交数据
+                  $.ajax({
+                    type:'post',
+                    url:'',
+                    data:{userName:name,userPassword:password},
+                    success:function(data){
+                        alert(data);
+                    },
+                    error:function(XMLHttpRequest, textStatus, errorThrown){
+                    alert('用户登录数据提交失败！');
+                        console.log(XMLHttpRequest.status);
+                        console.log(XMLHttpRequest.readyState);
+                        console.log(textStatus);
+                    }
+              });
+
+             }
+          }
+
+
+
+      });
+
+
+  </script>
+</html>
